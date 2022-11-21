@@ -5,20 +5,20 @@
 
 using namespace std;
 
-template <typename T>
+template<typename T>
 class ArrayBasedStack {
 private:
     int capacity;
     T *array;
     int top;
 public:
-    ArrayBasedStack(int capacity): capacity(capacity) {
+    ArrayBasedStack(int capacity) : capacity(capacity) {
         this->array = new T[capacity];
         this->top = 0;
     }
 
     int peek() {
-        return this->array[this->top-1];
+        return this->array[this->top - 1];
     }
 
     int pop() {
@@ -54,10 +54,23 @@ public:
 template<typename T>
 class LLBasedStack {
 private:
-    DoublyLinkedNode<T>* head;
+    DoublyLinkedNode<T> *head;
     int length;
+
+    void printRecursive(DoublyLinkedNode<T>* node) {
+        if (node == nullptr) {
+            return;
+        }
+
+        cout << node->data;
+        if (node->prev != nullptr) {
+            cout << ", ";
+        }
+        printRecursive(node->prev);
+    }
+
 public:
-    LLBasedStack(DoublyLinkedNode<T>* head = nullptr): head(head) {
+    LLBasedStack(DoublyLinkedNode<T> *head = nullptr) : head(head) {
         this->length = 0;
     }
 
@@ -93,6 +106,7 @@ public:
             }
             curr = curr->prev;
         }
+//        printRecursive(this->head);
         cout << "]" << endl;
     }
 
@@ -131,10 +145,9 @@ int main() {
         stack.print();
 
 
-
-    } catch (const underflow_error& e) {
+    } catch (const underflow_error &e) {
         cout << e.what() << endl;
-    } catch (const overflow_error& e) {
+    } catch (const overflow_error &e) {
         cout << e.what() << endl;
     }
 }
