@@ -101,9 +101,7 @@ public:
             this->head = new DoublyLinkedNode<T>(value);
             return;
         }
-//        this->head->prev = new DoublyLinkedNode<T>(value);
-//        this->head->prev->next = this->head;
-//        this->head = this->head->prev;
+
         this->head->next = new DoublyLinkedNode<T>(value);
         this->head->next->prev = this->head;
         this->head = this->head->next;
