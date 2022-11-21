@@ -86,7 +86,7 @@ void printReverse(DoublyLinkedList<T> list) {
     cout << "]" << endl;
 }
 
-void example() {
+/*void example() {
     // Main Idea, not a full implementation
     cout << "SINGULAR LINKED LIST" << endl;
     {
@@ -142,9 +142,11 @@ void example() {
     }
 
 
-}
+}*/
 
+/*
 int main() {
     example();
 }
+*/
 
